@@ -1,0 +1,29 @@
+server:
+  host: localhost
+  port: 8080
+
+log:
+  level: "debug"
+  filename: "log/bluebell.log"
+  maxsize: 100
+  maxbackups: 10
+  maxage: 7
+
+mysql: 
+  host: "8.141.147.249"
+  port: 3306
+  user: "root"
+  password: "ouc387597"
+  dbname: "bluebell"
+
+redis:
+  add: 127.0.0.1:6379
+  password: ""
+  dbnum: 0
+
+jwt:
+  key: "123456"
+
+snowflake:
+  starttime: '2021-05-25'
+  machineid: 1

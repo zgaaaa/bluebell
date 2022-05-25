@@ -1,0 +1,14 @@
+2022-05-24 23:18:11	middleware/logger.go:39		{"cost": 3, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-24 23:53:13	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-24 23:53:14	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-24 23:53:14	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-24 23:54:28	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-24 23:54:35	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-24 23:54:36	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-24 23:54:36	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-24 23:54:36	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-25 20:03:11	middleware/logger.go:37		{"cost": 1, "method": "GET", "status": 404, "ip": "::1", "path": "/", "query": "", "errors": ""}
+2022-05-25 20:03:11	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "::1", "path": "/favicon.ico", "query": "", "errors": ""}
+2022-05-25 20:03:15	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-25 20:03:21	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
+2022-05-25 20:23:23	middleware/logger.go:37		{"cost": 1, "method": "GET", "status": 404, "ip": "::1", "path": "/", "query": "", "errors": ""}
