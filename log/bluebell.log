@@ -12,3 +12,23 @@
 2022-05-25 20:03:15	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
 2022-05-25 20:03:21	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "::1", "path": "/ping", "query": "", "errors": ""}
 2022-05-25 20:23:23	middleware/logger.go:37		{"cost": 1, "method": "GET", "status": 404, "ip": "::1", "path": "/", "query": "", "errors": ""}
+2022-05-25 21:20:32	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:22:56	middleware/logger.go:37		{"cost": 1, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:24:12	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:25:28	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:26:00	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:26:00	controllers/user.go:14	绑定参数失败	{"error": "Key: 'ParamSignUp.Username' Error:Field validation for 'Username' failed on the 'min' tag\nKey: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'required' tag"}
+2022-05-25 21:26:18	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:26:18	controllers/user.go:14	绑定参数失败	{"error": "Key: 'ParamSignUp.Username' Error:Field validation for 'Username' failed on the 'min' tag\nKey: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'required' tag"}
+2022-05-25 21:26:28	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:26:28	controllers/user.go:14	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'required' tag"}
+2022-05-25 21:26:44	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:26:44	controllers/user.go:14	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'required' tag"}
+2022-05-25 21:27:54	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:28:02	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:28:02	controllers/user.go:14	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'eqfield' tag"}
+2022-05-25 21:29:33	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:29:33	controllers/user.go:14	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'required' tag"}
+2022-05-25 21:29:41	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 21:29:41	controllers/user.go:14	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'required' tag"}
+2022-05-25 21:29:45	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}

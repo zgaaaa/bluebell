@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"bluebell/controllers"
 	"bluebell/middleware"
 
 	"github.com/gin-gonic/gin"
@@ -9,10 +10,6 @@ import (
 func SetUp() *gin.Engine {
 	r := gin.Default()
 	r.Use(middleware.Logger(), middleware.GinRecovery(true))
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	r.POST("/signup", controllers.SignUpHandler)
 	return r
 }

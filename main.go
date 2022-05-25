@@ -19,6 +19,6 @@ func main() {
 		panic(err)
 	}
 	defer models.CloseRedis()
-	// 初始化服务器
+	// 初始化路由，并启动服务
 	routes.SetUp().Run(":8080")
 }
