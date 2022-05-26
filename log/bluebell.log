@@ -32,3 +32,37 @@
 2022-05-25 21:29:41	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
 2022-05-25 21:29:41	controllers/user.go:14	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'required' tag"}
 2022-05-25 21:29:45	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:10:31	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:12:50	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:12:51	controllers/user.go:21	用户注册失败	{"error": "Error 1062: Duplicate entry '' for key 'user.idx_username'"}
+2022-05-25 22:13:38	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:15:00	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:15:01	controllers/user.go:23	用户注册失败	{"error": "Error 1062: Duplicate entry '' for key 'user.idx_username'"}
+2022-05-25 22:18:40	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:19:04	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:19:04	controllers/user.go:21	用户注册失败	{"error": "用户名已存在"}
+2022-05-25 22:19:12	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:19:12	controllers/user.go:15	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'eqfield' tag"}
+2022-05-25 22:20:14	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:20:14	controllers/user.go:15	绑定参数失败	{"error": "invalid character '}' looking for beginning of object key string"}
+2022-05-25 22:20:41	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 22:20:41	controllers/user.go:15	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'eqfield' tag"}
+2022-05-25 22:47:59	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-25 22:48:04	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-25 22:48:05	controllers/user.go:38	用户登录失败	{"error": "密码错误"}
+2022-05-25 22:48:09	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-25 22:48:09	controllers/user.go:38	用户登录失败	{"error": "用户名不存在"}
+2022-05-25 22:48:18	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-25 23:39:11	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 23:39:12	controllers/user.go:22	用户注册失败	{"error": "用户已存在"}
+2022-05-25 23:39:20	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 23:39:20	controllers/user.go:16	绑定参数失败	{"error": "invalid character '}' looking for beginning of object key string"}
+2022-05-25 23:39:25	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/signup", "query": "", "errors": ""}
+2022-05-25 23:39:25	controllers/user.go:16	绑定参数失败	{"error": "Key: 'ParamSignUp.RePassword' Error:Field validation for 'RePassword' failed on the 'eqfield' tag"}
+2022-05-25 23:40:03	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-25 23:40:07	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-25 23:40:07	controllers/user.go:43	用户登录失败	{"error": "用户不存在"}
+2022-05-25 23:40:10	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-25 23:40:11	controllers/user.go:43	用户登录失败	{"error": "用户名或密码错误"}
+2022-05-25 23:40:18	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-25 23:40:18	controllers/user.go:43	用户登录失败	{"error": "用户不存在"}
