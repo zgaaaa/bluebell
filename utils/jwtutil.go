@@ -13,7 +13,6 @@ type CustomClaims struct {
 	UserID   int64  `json:"user_id"`
 	Username string `json:"username"`
 	jwt.StandardClaims
-
 }
 
 var mysecret = []byte(config.Conf.JwtConf.Key)
@@ -24,8 +23,8 @@ func GenToken(user *models.User) (string, error) {
 		user.UserID,
 		user.Username,
 		jwt.StandardClaims{
-			ExpiresAt: jwt.At(time.Now().Add(time.Minute * 5)), //5分钟后过期
-			Issuer:    config.Conf.Version,                     //签发人
+			ExpiresAt: jwt.At(time.Now().Add(time.Hour * 24 * 7)),
+			Issuer:    config.Conf.Version,
 		},
 	}
 
@@ -42,7 +41,7 @@ func ParseToken(tokenStr string) (*CustomClaims, error) {
 	if err != nil {
 		return nil, err
 	}
-	if token.Valid { // 校验 token 
+	if token.Valid { // 校验 token
 		return mc, nil
 	}
 	return nil, errors.New("invalid token")

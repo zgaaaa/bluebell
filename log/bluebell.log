@@ -75,3 +75,77 @@
 2022-05-26 19:07:59	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
 2022-05-26 19:08:32	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
 2022-05-26 19:10:02	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/login", "query": "", "errors": ""}
+2022-05-26 22:42:10	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/api/v1/commnuty/list", "query": "", "errors": ""}
+2022-05-26 22:43:37	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:44:33	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:44:45	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:44:59	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/login", "query": "", "errors": ""}
+2022-05-26 22:45:02	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:45:09	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:45:16	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/login", "query": "", "errors": ""}
+2022-05-26 22:45:18	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/login", "query": "", "errors": ""}
+2022-05-26 22:45:34	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:46:04	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:46:04	models/community.go:19	没有查询到数据	{"error": "Error 1054: Unknown column 'commumity_id' in 'field list'"}
+2022-05-26 22:46:10	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:46:10	models/community.go:19	没有查询到数据	{"error": "Error 1054: Unknown column 'commumity_id' in 'field list'"}
+2022-05-26 22:48:10	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:48:10	models/community.go:19	没有查询到数据	{"error": "missing destination name community_id in *[]*models.Community"}
+2022-05-26 22:49:11	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:49:12	models/community.go:19	没有查询到数据	{"error": "missing destination name community_name in *[]*models.Community"}
+2022-05-26 22:49:18	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:49:18	models/community.go:19	没有查询到数据	{"error": "missing destination name community_name in *[]*models.Community"}
+2022-05-26 22:50:46	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:50:48	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:50:49	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:50:53	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/login", "query": "", "errors": ""}
+2022-05-26 22:50:55	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:50:55	models/community.go:19	没有查询到数据	{"error": "missing destination name community_name in *[]*models.Community"}
+2022-05-26 22:54:05	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 22:54:05	models/community.go:16	没有查询到数据
+2022-05-26 23:07:16	middleware/logger.go:37		{"cost": 0, "method": "POST", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/login", "query": "", "errors": ""}
+2022-05-26 23:07:21	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/list", "query": "", "errors": ""}
+2022-05-26 23:07:22	models/community.go:15	没有查询到数据
+2022-05-26 23:09:35	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/{{id}}", "query": "id=1", "errors": ""}
+2022-05-26 23:10:15	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/{{id}}", "query": "id=1", "errors": ""}
+2022-05-26 23:10:15	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:10:30	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/{{id}}", "query": "id=1", "errors": ""}
+2022-05-26 23:10:30	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:10:36	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/1", "query": "id=", "errors": ""}
+2022-05-26 23:10:36	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:10:40	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/1", "query": "id=1", "errors": ""}
+2022-05-26 23:10:40	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:11:02	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/api/v1/community/", "query": "id=1", "errors": ""}
+2022-05-26 23:12:50	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/api/v1/community/", "query": "id=3", "errors": ""}
+2022-05-26 23:12:51	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/api/v1/community/", "query": "id=3", "errors": ""}
+2022-05-26 23:14:10	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/api/v1/community/", "query": "id=8", "errors": ""}
+2022-05-26 23:14:13	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/api/v1/community/", "query": "id=6", "errors": ""}
+2022-05-26 23:15:12	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=8", "errors": ""}
+2022-05-26 23:15:12	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:20:05	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=4", "errors": ""}
+2022-05-26 23:20:05	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:20:23	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=4", "errors": ""}
+2022-05-26 23:20:23	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:20:25	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=6", "errors": ""}
+2022-05-26 23:20:25	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:20:27	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=3", "errors": ""}
+2022-05-26 23:20:28	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:20:32	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=4", "errors": ""}
+2022-05-26 23:20:32	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:20:33	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=6", "errors": ""}
+2022-05-26 23:20:33	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:20:34	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=6", "errors": ""}
+2022-05-26 23:20:34	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:20:35	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=4", "errors": ""}
+2022-05-26 23:20:35	models/community.go:27	没有查询到数据	{"error": "Error 1054: Unknown column 'community_description' in 'field list'"}
+2022-05-26 23:21:22	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/2", "query": "id=1", "errors": ""}
+2022-05-26 23:21:22	models/community.go:27	没有查询到数据	{"error": "sql: Scan error on column index 2, name \"introduction\": unsupported Scan, storing driver.Value type []uint8 into type *time.Time"}
+2022-05-26 23:21:52	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/api/v1/community/", "query": "id=2", "errors": ""}
+2022-05-26 23:21:57	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 404, "ip": "127.0.0.1", "path": "/api/v1/community/", "query": "id=3", "errors": ""}
+2022-05-26 23:24:45	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/1", "query": "", "errors": ""}
+2022-05-26 23:24:45	models/community.go:27	没有查询到数据	{"error": "sql: Scan error on column index 2, name \"introduction\": unsupported Scan, storing driver.Value type []uint8 into type *time.Time"}
+2022-05-26 23:25:50	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/1", "query": "", "errors": ""}
+2022-05-26 23:26:43	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/3", "query": "", "errors": ""}
+2022-05-26 23:26:48	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/5", "query": "", "errors": ""}
+2022-05-26 23:26:48	models/community.go:27	没有查询到数据	{"error": "sql: no rows in result set"}
+2022-05-26 23:27:43	middleware/logger.go:37		{"cost": 0, "method": "GET", "status": 200, "ip": "127.0.0.1", "path": "/api/v1/community/4", "query": "", "errors": ""}
