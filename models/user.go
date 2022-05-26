@@ -49,3 +49,13 @@ func GetUserPassword(username string) (string, error) {
 	}
 	return password, nil
 }
+
+// GetUserByUsername 获取用户信息
+func GetUserByUsername(username string) (*User, error) {
+	sqlStr := "select user_id, username, password, email from user where username = ?"
+	user := &User{}
+	if err := DB.Get(user, sqlStr, username); err != nil {
+		return nil, err
+	}
+	return user, nil
+}

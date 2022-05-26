@@ -9,6 +9,7 @@ import (
 	"go.uber.org/zap"
 )
 
+// SignUpHandler 用户注册
 func SignUpHandler(c *gin.Context) {
 	// 获取参数并校验
 	param := new(models.ParamSignUp)
@@ -30,6 +31,7 @@ func SignUpHandler(c *gin.Context) {
 	utils.ResponseSuccess(c, nil)
 }
 
+// LoginHandler 用户登录
 func LoginHandler(c *gin.Context) {
 	// 获取参数并校验
 	param := new(models.ParamLogin)
@@ -39,7 +41,8 @@ func LoginHandler(c *gin.Context) {
 		return
 	}
 	// 用户登录
-	if err := services.Login(param); err != nil {
+	token, err := services.Login(param)
+	if err != nil {
 		zap.L().Error("用户登录失败", zap.Error(err))
 		if err == services.ErrUserNotExist {
 			utils.ResponseError(c, utils.CodeUserNotExist)
@@ -51,5 +54,5 @@ func LoginHandler(c *gin.Context) {
 		return
 	}
 	// 登录成功
-	utils.ResponseSuccess(c, nil)
+	utils.ResponseSuccess(c, token)
 }

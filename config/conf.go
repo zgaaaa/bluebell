@@ -22,6 +22,8 @@ type AppConf struct {
 type ServerConf struct {
 	Host string `mapstructure:"host"`
 	Port string `mapstructure:"port"`
+	Version string `mapstructure:"version"`
+	Name string `mapstructure:"name"`
 }
 
 type MysqlConf struct {

@@ -32,18 +32,26 @@ func SignUp(p *models.ParamSignUp) error {
 }
 
 // Login 用户登录
-func Login(p *models.ParamLogin) error {
+func Login(p *models.ParamLogin) (string, error) {
 	// 检查用户是否存在
 	if exist, err := models.CheckUserExist(p.Username); err != nil {
-		return err
+		return "", err
 	} else if !exist {
-		return ErrUserNotExist
+		return "", ErrUserNotExist
 	}
 	// 检查密码
 	if pwd, err := models.GetUserPassword(p.Username); err != nil {
-		return err
+		return "", err
 	} else if pwd != models.EncryptPassword(p.Password) {
-		return ErrPassword
+		return "", ErrPassword
 	}
-	return nil
+
+	// 获取用户信息
+	user, err := models.GetUserByUsername(p.Username)
+	if err != nil {
+		return "", err
+	} 
+	// 生成token
+	return utils.GenToken(user)
+	
 }

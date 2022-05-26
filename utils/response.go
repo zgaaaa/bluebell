@@ -10,7 +10,13 @@ const (
 	CodeUserNotExist              // 用户不存在
 	CodeUserExist                 // 用户已存在
 	CodeUserPasswordError         // 用户密码错误
+	CodeUserTokenError            // 用户token错误
+	CodeUserTokenExpire           // 用户token过期
+	CodeUserTokenNotExist         // 用户token不存在
+	CodeUserTokenNotMatch         // 用户token不匹配
+	CodeUserTokenNotValid         // 用户token不合法
 	CodeServerBusy                // 服务器繁忙
+	
 )
 
 var CodeMsg = map[ResCode]string{
@@ -19,7 +25,13 @@ var CodeMsg = map[ResCode]string{
 	CodeUserNotExist:      "用户不存在",
 	CodeUserExist:         "用户已存在",
 	CodeUserPasswordError: "用户或密码错误",
+	CodeUserTokenError:    "用户token错误",
+	CodeUserTokenExpire:   "用户token过期",
+	CodeUserTokenNotExist: "用户token不存在",
+	CodeUserTokenNotMatch: "用户token不匹配",
+	CodeUserTokenNotValid: "用户token不合法",
 	CodeServerBusy:        "服务器繁忙",
+
 }
 
 type Response struct {
