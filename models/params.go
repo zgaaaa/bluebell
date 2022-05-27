@@ -21,7 +21,7 @@ type ParamCommunityList struct {
 	Name string `json:"name" db:"community_name"`
 }
 
-
+// 社区详情参数
 type ParamCommunityDetail struct {
 	Id          int    `json:"id" db:"community_id"`
 	Name        string `json:"name" db:"community_name"`

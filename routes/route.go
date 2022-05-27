@@ -21,6 +21,9 @@ func SetUp() *gin.Engine {
 		auth.Use(middleware.JWTAuth())
 		auth.GET("/community/list", controllers.CommunityListHandler)
 		auth.GET("/community/:id", controllers.CommunityDetailHandler)
+
+		auth.POST("/post", controllers.PostCreateHandler)
+		auth.GET("/post/:id", controllers.PostDetailHandler)
 	}
 	return r
 }
