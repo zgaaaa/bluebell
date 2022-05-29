@@ -35,3 +35,15 @@ func GetPostDetail(id int64) (*Post, error) {
 	}
 	return post, nil
 }
+
+// GetPostList 获取帖子列表
+func GetPostList(page, size int) ([]*Post, error) {
+	sqlStr := `SELECT post_id, title, content, author_id, community_id, status, create_time 
+	FROM post LIMIT ?, ?`
+	posts := make([]*Post, 0, size)
+	err := DB.Select(&posts, sqlStr, page, size)
+	if err == sql.ErrNoRows {
+		return nil, err
+	}
+	return posts, nil
+}

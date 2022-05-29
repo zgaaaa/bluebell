@@ -37,7 +37,7 @@ var CodeMsg = map[ResCode]string{
 type Response struct {
 	Code    ResCode `json:"code"`
 	Message string  `json:"message"`
-	Data    any     `json:"data"`
+	Data    any     `json:"data,omitempty"`
 }
 
 func ResponseSuccess(c *gin.Context, data any) {

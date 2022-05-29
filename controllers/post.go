@@ -16,13 +16,13 @@ func PostCreateHandler(c *gin.Context) {
 	post := &models.Post{}
 	if err := c.ShouldBindJSON(post); err != nil {
 		zap.L().Error("参数校验失败", zap.Error(err))
-		utils.ResponseError(c,utils.CodeParamError)
+		utils.ResponseError(c, utils.CodeParamError)
 		return
 	}
 	// 创建新帖子
 	if err := services.CreatePost(post, c); err != nil {
 		zap.L().Error("创建帖子失败", zap.Error(err))
-		utils.ResponseError(c,utils.CodeServerBusy)
+		utils.ResponseError(c, utils.CodeServerBusy)
 		return
 	}
 	utils.ResponseSuccess(c, nil)
@@ -38,9 +38,24 @@ func PostDetailHandler(c *gin.Context) {
 	post, err := services.GetPostDetail(id)
 	if err != nil {
 		zap.L().Error("获取帖子详情失败", zap.Error(err))
-		utils.ResponseError(c,utils.CodeServerBusy)
+		utils.ResponseError(c, utils.CodeServerBusy)
 		return
 	}
 	utils.ResponseSuccess(c, post)
-	// 返回相应
+}
+
+// PostListHandler 获取帖子列表
+func PostListHandler(c *gin.Context) {
+	// 获取删除及参数校验
+	page := cast.ToInt(c.DefaultQuery("page", "1"))
+	size := cast.ToInt(c.DefaultQuery("size", "10"))
+
+	// 获取帖子列表
+	posts, err := services.GetPostList(page, size)
+	if err != nil {
+		zap.L().Error("获取帖子列表失败", zap.Error(err))
+		utils.ResponseError(c, utils.CodeServerBusy)
+		return
+	}
+	utils.ResponseSuccess(c, posts)
 }

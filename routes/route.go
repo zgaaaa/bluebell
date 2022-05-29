@@ -24,6 +24,7 @@ func SetUp() *gin.Engine {
 
 		auth.POST("/post", controllers.PostCreateHandler)
 		auth.GET("/post/:id", controllers.PostDetailHandler)
+		auth.GET("/post/list", controllers.PostListHandler)
 	}
 	return r
 }

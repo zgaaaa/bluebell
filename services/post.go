@@ -30,3 +30,12 @@ func GetPostDetail(id int64) (*models.Post, error) {
 	}
 	return post, nil
 }
+
+// GetPostList 获取帖子列表
+func GetPostList(page, size int) ([]*models.Post, error) {
+	posts, err := models.GetPostList(page, size)
+	if err != nil {
+		return nil, err
+	}
+	return posts, nil
+}
