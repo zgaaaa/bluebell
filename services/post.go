@@ -19,6 +19,8 @@ func CreatePost(post *models.Post, c *gin.Context) error {
 	if err := models.CreatePost(post); err != nil {
 		return err
 	}
+	// 创建投票
+	models.CreatePostVote(post.Id)
 	return nil
 }
 

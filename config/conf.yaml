@@ -19,7 +19,7 @@ mysql:
   dbname: "bluebell"
 
 redis:
-  add: 127.0.0.1:6379
+  add: 8.141.147.249:3000
   password: ""
   dbnum: 0
 
