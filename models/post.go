@@ -1,8 +1,17 @@
 package models
 
 import (
+	"context"
 	"database/sql"
+	"strings"
 	"time"
+
+	"github.com/jmoiron/sqlx"
+)
+
+const (
+	OrderByTime  = "time"
+	OrderByScore = "score"
 )
 
 type Post struct {
@@ -36,14 +45,41 @@ func GetPostDetail(id int64) (*Post, error) {
 	return post, nil
 }
 
-// GetPostList 获取帖子列表
-func GetPostList(page, size int) ([]*Post, error) {
-	sqlStr := `SELECT post_id, title, content, author_id, community_id, status, create_time 
-	FROM post LIMIT ?, ?`
-	posts := make([]*Post, 0, size)
-	err := DB.Select(&posts, sqlStr, page, size)
-	if err == sql.ErrNoRows {
+func GetPostIdsByOrder(param *ParamPostList) ([]string, error) {
+	// 根据param.Order参数选择排序方式
+	key := GetPostKey(KeyPostTime)
+	if param.Order == OrderByScore {
+		key = GetPostKey(KeyPostScore)
+	}
+	// 查询范围
+	start := (param.PageNum - 1) * param.PageSize
+	end := start + param.PageSize - 1
+	// 按分数从大到小查询
+	return RDB.ZRevRange(context.Background(), key, int64(start), int64(end)).Result()
+}
+
+func GetPostsByIds(ids []string) ([]*ResPostList, error) {
+	sqlStr := `SELECT post_id, title, content, author_id, community_id, status, create_time
+	FROM post 
+	WHERE post_id IN (?)
+	ORDER BY FIND_IN_SET(post_id, ?)`
+	posts := make([]*ResPostList, 0, len(ids))
+	query, args, err := sqlx.In(sqlStr, ids, strings.Join(ids, ","))
+	if err != nil {
 		return nil, err
+	}
+	query = DB.Rebind(query)
+	if err := DB.Select(&posts, query, args...); err != nil {
+		return nil, err
+	}
+
+	votes,scores, err := GetPostsScore(ids)
+	if err != nil {
+		return nil, err
+	}
+	for i, post := range posts {
+		post.Vote = votes[i]
+		post.Score = scores[i]
 	}
 	return posts, nil
 }

@@ -47,11 +47,18 @@ func PostDetailHandler(c *gin.Context) {
 // PostListHandler 获取帖子列表
 func PostListHandler(c *gin.Context) {
 	// 获取删除及参数校验
-	page := cast.ToInt(c.DefaultQuery("page", "1"))
-	size := cast.ToInt(c.DefaultQuery("size", "10"))
-
+	param := &models.ParamPostList{
+		PageNum: 1,
+		PageSize: 10,
+		Order: models.OrderByTime,
+	}
+	if err := c.ShouldBindQuery(param); err != nil {
+		zap.L().Error("参数校验失败", zap.Error(err))
+		utils.ResponseError(c, utils.CodeParamError)
+		return
+	}
 	// 获取帖子列表
-	posts, err := services.GetPostList(page, size)
+	posts, err := services.GetPostList(param)
 	if err != nil {
 		zap.L().Error("获取帖子列表失败", zap.Error(err))
 		utils.ResponseError(c, utils.CodeServerBusy)

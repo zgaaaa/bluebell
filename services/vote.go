@@ -24,9 +24,11 @@ func PostVote(c *gin.Context, p *models.ParamVote) (err error) {
 	// 3. vote=-1：
 	// 之前没有投过票，现在投反对票     票差：-1  -432
 	// 之前投赞成票，现在投投反对票     票差：-2  -432*2
+
+	// 公式：score = （现在票的类型-之前票的类型）* 432
 	keyName := models.GetPostKey(models.KeyPostVote+cast.ToString(p.PostId))
 	oldDir := models.GetVote(keyName, p.UserId)
-	sorce := (float64(p.Direction) - oldDir) * 432
+	sorce := (float64(p.Direction) - oldDir) * models.Score
 	if err := models.UpdateVote(models.GetPostKey(models.KeyPostScore), p.PostId, sorce); err != nil {
 		return err
 	}
@@ -35,5 +37,5 @@ func PostVote(c *gin.Context, p *models.ParamVote) (err error) {
 	} else {
 		err = models.CreateVote(p.PostId,p.UserId,p.Direction)
 	}
-	return err
+	return
 }

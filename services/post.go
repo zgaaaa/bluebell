@@ -34,10 +34,11 @@ func GetPostDetail(id int64) (*models.Post, error) {
 }
 
 // GetPostList 获取帖子列表
-func GetPostList(page, size int) ([]*models.Post, error) {
-	posts, err := models.GetPostList(page, size)
+func GetPostList(param *models.ParamPostList) ([]*models.ResPostList, error) {
+	ids, err := models.GetPostIdsByOrder(param)
 	if err != nil {
 		return nil, err
 	}
-	return posts, nil
+	return models.GetPostsByIds(ids)
+
 }

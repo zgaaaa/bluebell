@@ -14,7 +14,7 @@ const (
 	KeyPostScore  = "score"
 	KeyPostVote   = "vote:"
 
-	score = 432
+	Score = 432
 )
 
 func GetPostKey(key string) string {
@@ -62,4 +62,36 @@ func UpdateVote(key string, postId int64, score float64) error {
 func DelVote(key string, member int64) error {
 	ctx := context.Background()
 	return RDB.ZRem(ctx, key, cast.ToString(member)).Err()
+}
+
+func GetPostsScore(ids []string) (votes []int64, scores []float64, err error) {
+	ctx := context.Background()
+	// 开启管道，减少网络RTT
+	pipeline := RDB.Pipeline()
+	for _, id := range ids {
+		votekey := GetPostKey(KeyPostVote + id)
+		pipeline.ZCount(ctx, votekey, "1", "1")
+	}
+	cmders, err := pipeline.Exec(ctx)
+	if err != nil {
+		return nil, nil, err
+	}
+	votes = make([]int64, 0, len(cmders))
+	for _, cmder := range cmders {
+		votes = append(votes, cmder.(*redis.IntCmd).Val())
+	}
+	pipeline = RDB.Pipeline()
+	for _, id := range ids {
+		scoreley := GetPostKey(KeyPostScore)
+		pipeline.ZScore(ctx, scoreley, id)
+	}
+	cmders, err = pipeline.Exec(ctx)
+	if err != nil {
+		return nil, nil, err
+	}
+	scores = make([]float64, 0, len(cmders))
+	for _, cmder := range cmders {
+		scores = append(scores, cmder.(*redis.FloatCmd).Val())
+	}
+	return votes, scores, nil
 }

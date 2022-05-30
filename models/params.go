@@ -33,5 +33,18 @@ type ParamCommunityDetail struct {
 type ParamVote struct {
 	UserId int64 `json:"user_id" db:"user_id"`
 	PostId int64 `json:"post_id,string" binding:"required"`
-	Direction int8 `json:"direction" binding:"required,oneof=1 0 -1"` // 赞成票（1）、反对票（-1）、取消投票（0）
+	Direction int8 `json:"direction,omitempty" binding:"oneof=1 0 -1"` // 赞成票（1）、反对票（-1）、取消投票（0）
+}
+
+// 帖子列表参数
+type ParamPostList struct {
+	PageNum int `json:"page_num" form:"page_num"`
+	PageSize int `json:"page_size" form:"page_size"`
+	Order string `json:"order" form:"order"`
+}
+
+type ResPostList struct {
+	Post
+	Vote int64 `json:"votes"`
+	Score float64 `json:"score"`	
 }
