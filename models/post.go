@@ -101,7 +101,7 @@ func GetPostIdsByCommunity(param *ParamPostListByCommunity) ([]string, error) {
 	if param.Order == OrderByScore {
 		keyorder = GetPostKey(KeyPostScore)
 	}
-	key := KeyCommunity + "postvote"
+	key := KeyCommunity + "postvote:" + param.Order
 	ctx := context.Background()
 	if RDB.Exists(ctx,key).Val() == 0 {
 		TRX := RDB.TxPipeline()
