@@ -19,12 +19,14 @@ func SetUp() *gin.Engine {
 	auth := r.Group("/api/v1") // 需要鉴权的接口
 	{
 		auth.Use(middleware.JWTAuth())
+		auth.POST("/community", controllers.CommunityCreateHandler)
 		auth.GET("/community/list", controllers.CommunityListHandler)
 		auth.GET("/community/:id", controllers.CommunityDetailHandler)
 
 		auth.POST("/post", controllers.PostCreateHandler)
 		auth.GET("/post/:id", controllers.PostDetailHandler)
 		auth.GET("/post/list", controllers.PostListHandler)
+		auth.GET("/post/community/:id", controllers.PostListByCommunityHandler)
 
 		auth.POST("/vote", controllers.VoteHandler)
 	}

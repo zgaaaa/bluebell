@@ -6,7 +6,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/go-redis/redis/v8"
 	"github.com/jmoiron/sqlx"
+	"github.com/spf13/cast"
 )
 
 const (
@@ -19,7 +21,7 @@ type Post struct {
 	Title       string    `json:"title" db:"title" binding:"required"`
 	Content     string    `json:"content" db:"content" binding:"required"`
 	AuthorId    int64     `json:"author_id" db:"author_id"`
-	CommunityId int       `json:"community_id" db:"community_id" binding:"required"`
+	CommunityId int64       `json:"community_id" db:"community_id" binding:"required"`
 	Status      int       `json:"status" db:"status"`
 	CreateTime  time.Time `json:"create_time" db:"create_time"`
 }
@@ -31,6 +33,12 @@ func CreatePost(post *Post) error {
 	VALUES (?, ?, ?, ?, ?)`
 	_, err := DB.Exec(sqlStr, post.Id, post.Title, post.Content, post.AuthorId, post.CommunityId)
 	return err
+}
+
+// CreateCommunityPost
+func CreateCommunityPost(comId , postId int64) error {
+	ctx := context.Background()
+	return RDB.SAdd(ctx, KeyCommunity+cast.ToString(comId), postId).Err()
 }
 
 // GetPostDetail 获取帖子详情
@@ -45,6 +53,7 @@ func GetPostDetail(id int64) (*Post, error) {
 	return post, nil
 }
 
+// GetPostIdsByOrder 查询帖子ID
 func GetPostIdsByOrder(param *ParamPostList) ([]string, error) {
 	// 根据param.Order参数选择排序方式
 	key := GetPostKey(KeyPostTime)
@@ -73,7 +82,7 @@ func GetPostsByIds(ids []string) ([]*ResPostList, error) {
 		return nil, err
 	}
 
-	votes,scores, err := GetPostsScore(ids)
+	votes,scores, err := GetPostsScoreAndVote(ids)
 	if err != nil {
 		return nil, err
 	}
@@ -83,3 +92,33 @@ func GetPostsByIds(ids []string) ([]*ResPostList, error) {
 	}
 	return posts, nil
 }
+
+// GetPostIdsByCommunity 
+func GetPostIdsByCommunity(param *ParamPostListByCommunity) ([]string, error) {
+	// 使用zinterstore把分区的帖子set和分数的zset生成一个新的zset
+	keyCom := KeyCommunity + cast.ToString(param.CommunityId)
+	keyorder := GetPostKey(KeyPostTime)
+	if param.Order == OrderByScore {
+		keyorder = GetPostKey(KeyPostScore)
+	}
+	key := KeyCommunity + "postvote"
+	ctx := context.Background()
+	if RDB.Exists(ctx,key).Val() == 0 {
+		TRX := RDB.TxPipeline()
+		TRX.ZInterStore(ctx,key,&redis.ZStore{
+			Keys: []string{keyCom, keyorder},
+			Aggregate: "MAX",
+		})
+		TRX.Expire(ctx,key,time.Hour)
+		if _, err := TRX.Exec(ctx); err != nil {
+			return nil, err
+		}
+	}
+	
+	// 查询范围
+	start := (param.PageNum - 1) * param.PageSize
+	end := start + param.PageSize - 1
+	// 按分数从大到小查询
+	return RDB.ZRevRange(ctx, key, int64(start), int64(end)).Result()
+}
+

@@ -6,6 +6,10 @@ import (
 	"go.uber.org/zap"
 )
 
+const (
+	KeyCommunity = "bluebell:community:"
+)
+
 // CommunityList 获取社区列表
 func CommunityList() ([]*ParamCommunityList, error) {
 	communitys := make([]*ParamCommunityList, 0)
@@ -28,4 +32,11 @@ func CommunityDetail(id int) (*ParamCommunityDetail, error) {
 		err = nil
 	}
 	return community, err
+}
+
+// CreateCommunity 创建社区
+func CreateCommunity(community *ParamCommunityCreate) error {
+	sqlStr := "insert into community (community_id, community_name, introduction) values (?, ?, ?, ?)"
+	_, err := DB.Exec(sqlStr, community.Id, community.Name, community.Introduction)
+	return err
 }

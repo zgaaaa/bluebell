@@ -13,7 +13,7 @@ const (
 	KeyPostTime   = "time"
 	KeyPostScore  = "score"
 	KeyPostVote   = "vote:"
-
+	
 	Score = 432
 )
 
@@ -64,7 +64,8 @@ func DelVote(key string, member int64) error {
 	return RDB.ZRem(ctx, key, cast.ToString(member)).Err()
 }
 
-func GetPostsScore(ids []string) (votes []int64, scores []float64, err error) {
+// GetPostsScoreAndVote 获取帖子分数和投票数
+func GetPostsScoreAndVote(ids []string) (votes []int64, scores []float64, err error) {
 	ctx := context.Background()
 	// 开启管道，减少网络RTT
 	pipeline := RDB.Pipeline()
@@ -95,3 +96,4 @@ func GetPostsScore(ids []string) (votes []int64, scores []float64, err error) {
 	}
 	return votes, scores, nil
 }
+

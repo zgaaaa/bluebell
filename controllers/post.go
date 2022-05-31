@@ -48,9 +48,9 @@ func PostDetailHandler(c *gin.Context) {
 func PostListHandler(c *gin.Context) {
 	// 获取删除及参数校验
 	param := &models.ParamPostList{
-		PageNum: 1,
+		PageNum:  1,
 		PageSize: 10,
-		Order: models.OrderByTime,
+		Order:    models.OrderByTime,
 	}
 	if err := c.ShouldBindQuery(param); err != nil {
 		zap.L().Error("参数校验失败", zap.Error(err))
@@ -59,6 +59,28 @@ func PostListHandler(c *gin.Context) {
 	}
 	// 获取帖子列表
 	posts, err := services.GetPostList(param)
+	if err != nil {
+		zap.L().Error("获取帖子列表失败", zap.Error(err))
+		utils.ResponseError(c, utils.CodeServerBusy)
+		return
+	}
+	utils.ResponseSuccess(c, posts)
+}
+
+func PostListByCommunityHandler(c *gin.Context) {
+	param := &models.ParamPostListByCommunity{
+		CommunityId: cast.ToInt64(c.Param("id")),
+		PageNum:     1,
+		PageSize:    10,
+		Order:       models.OrderByTime,
+	}
+	if err := c.ShouldBindQuery(param); err != nil {
+		zap.L().Error("参数校验失败", zap.Error(err))
+		utils.ResponseError(c, utils.CodeParamError)
+		return
+	}
+	// 获取帖子列表
+	posts, err := services.GetPostListByCommunity(param)
 	if err != nil {
 		zap.L().Error("获取帖子列表失败", zap.Error(err))
 		utils.ResponseError(c, utils.CodeServerBusy)
